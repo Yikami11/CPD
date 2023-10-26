@@ -1,0 +1,28 @@
+from collections import deque
+class Deque:
+    def __init__(self):
+        self.deque = deque()
+
+    def append_left(self, item):
+        self.deque.appendleft(item)
+
+    def append_right(self, item):
+        self.deque.append(item)
+
+    def delete_left(self):
+        if not self.is_empty():
+            return self.deque.popleft()
+        else:
+            return None
+
+    def delete_right(self):
+        if not self.is_empty():
+            return self.deque.pop()
+        else:
+            return None
+
+    def is_empty(self):
+        return len(self.deque) == 0
+
+    def display(self):
+        print("Current Deque:", self.deque)
