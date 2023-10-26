@@ -1,0 +1,114 @@
+import Stack
+import Queue
+import Deque
+
+'''
+Menu Code
+'''
+
+
+def menu():
+    print("--------------------")
+    print("[1] Push an element")
+    print("[2] Pop an element")
+    print("[3] ADD an element at the rear of Deque")
+    print("[4] ADD an element at the front of Deque")
+    print("[5] Push an element inside the queue")
+    print("[6] Delete element inside the queue")
+    print("[7] Delete an element at the rear of Deque")
+    print("[8] Delete an element at the front of Deque")
+    print("[9] Print all functions")
+    print("[0] Exit Program")
+    print("--------------------")
+
+
+def main():
+    stack = Stack.Stack()
+    queue = Queue.Queue()
+    deque = Deque.Deque()
+    menu()
+
+    while True:
+        try:
+            option = int(input("Choose [1], [2], [3], [4], [5], [6], [7], [8], [9], [0]: "))
+            print()
+
+            if option == 1:
+                element = input("Enter an element to add to the STACK: ")
+                stack.push(element)
+                print(f"'{element}' Added onto the STACK.")
+                stack.display()
+                print()
+
+            elif option == 2:
+                element = stack.pop()
+                if element is not None:
+                    print(f"'{element}' deleted from the STACK.")
+                else:
+                    print("The stack is empty. No element to delete.")
+                stack.display()
+
+            elif option == 3:
+                element = input("Enter an element to add to the Queue: ")
+                queue.enqueue(element)
+                print(f"'{element}' Added onto the Queue.")
+                queue.display()
+                print()
+
+            elif option == 4:
+                element = queue.dequeue()
+                if element is not None:
+                    print(f"'{element}' deleted from the Queue.")
+                else:
+                    print("The Queue is empty. No element to delete.")
+                queue.display()
+
+            elif option == 5:
+                element = input("Enter an element to add to the left side of the Deque: ")
+                deque.append_left(element)
+                print(f"'{element}' added onto the left side of the Deque.")
+                deque.display()
+                print()
+
+            elif option == 6:
+                element = input("Enter an element to add to the right side of the Deque: ")
+                deque.append_right(element)
+                print(f"'{element}' added onto the right side of the Deque.")
+                deque.display()
+
+
+            elif option == 7:
+                element = deque.delete_left()
+                if element is not None:
+                    print(f"'{element}' deleted from the left side of the Deque.")
+                else:
+                    print("The Deque is empty. No element to delete from the left side.")
+                deque.display()
+
+            elif option == 8:
+                element = deque.delete_right()
+                if element is not None:
+                    print(f"'{element}' deleted from the right side of the Deque.")
+                else:
+                    print("The Deque is empty. No element to delete from the right side.")
+                deque.display()
+
+            elif option == 9:
+                print("STACK:")
+                stack.display()
+                print("\nQUEUE:")
+                queue.display()
+                print("\nDEQUE:")
+                deque.display()
+
+            elif option == 0:
+                print("Exiting the program.")
+                break
+
+            else:
+                print("Invalid choice. Please select a valid option.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+if __name__ == "__main__":
+    main()
